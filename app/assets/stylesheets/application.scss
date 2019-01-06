@@ -1,0 +1,11 @@
+@import "./reset";
+@import "./left";
+@import "./right";
+
+@import "font-awesome";
+
+.all{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
