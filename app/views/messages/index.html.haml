@@ -1,31 +1,13 @@
 .all
   .left
-    .side__top
-      .side__top__user
-        .side__top__user__name
-          = current_user.name
-        .side__top__user__edit
-          = link_to new_group_path, class: 'icon__pencil' do
-            = fa_icon 'pencil-square-o'
-          = link_to edit_user_path(current_user), class: 'icon__pencil' do
-            = fa_icon 'cog'
-    .side__bottom
-      .side__bottom__list
-        .side__bottom__list__group
-          - current_user.groups.each do |group|
-            = link_to group_messages_path(group), class: "list" do
-              .side__bottom__list__group__name
-                = group.name
-              .side__bottom__list__group__message
-                まだメッセージはありません
-
+    = render 'messages/side_bar'
   .right
     .main__top
       .main__top__group
         .main__top__group__name
           group name
         .main__top__group__edit
-          =link_to 'edit', root_path, class: 'edit-btn'
+          =link_to 'edit', edit_group_path(@group.id), class: 'edit-btn'
       .main__top__members
         Members
     .main__center
