@@ -38,17 +38,23 @@
     &__list{
       height: 100%;
       &__group{
-        padding: 20px;
+        padding-left: 20px;
+        color: #FFFFFF;
+        text-decoration: none;
+        .list{
+          text-decoration: none;
+          padding: 20px;
+        }
         &__name{
           font-size: 15px;
+          color: #FFFFFF;
         }
         &__message{
           margin-top: 5px;
           font-size: 11px;
+          color: #FFFFFF;
         }
       }
     }
   }
 }
-
-
