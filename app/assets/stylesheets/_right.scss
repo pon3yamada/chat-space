@@ -2,78 +2,93 @@
   width: calc( 100vw - 300px );
   height: 100vh;
   .main__top{
-    height: 15%;
-    width: calc(100% - 0px);
+    width: 100%;
     padding: 0px 40px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
     &__group{
-      display: flex;
-      justify-content: space-between;
       &__name{
-        margin-top: 35px;
+        margin-top: 20px;
         font-size: 20px;
+        line-height: 40px;
         color: #333333;
-      }
-      &__edit{
-        color: #38AEF0;
-        padding:13px 20px;
-        margin: 28px 0px 0;
-        border: 2px solid #38AEF0;
-        .edit-btn{
-          text-decoration: none;
-          color :#38AEF0;
+        &__members{
+          font-size: 12px;
+          margin-bottom: 20px;
+          color: #999999;
         }
       }
     }
-    &__members{
-      font-size: 12px;
-      color: #999999;
-    }
+    &__edit{
+      .edit-btn{
+        display: inline-block;
+        text-decoration: none;
+        border: 2px solid #38AEF0;
+        color :#38AEF0;
+        margin: 28px;
+        padding: 0 22px;
+        line-height: 40px;
+        font-size: 14px;
+        }
+      }
   }
   .main__center{
     background-color: #eeeeee;
-    height: calc( 100vh - 15% - 90px );
+    height: calc( 100% - 190px );
     width: 100%;
-    &__contents{
-    }
   }
+
   .main__bottom{
     background-color: #CCCCCC;
     height: 90px;
     width: 100%;
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
       &__message{
         height:50px;
-        width:calc(100% - 120px);
-        .main__bottom__message-file {
-          position: relative;
-          .text{
-            position: absolute;
-            width:100%;
-            height: 50px;
-          }
-          .main__bottom__file {
-            position: absolute;
-            right: 10px;
-            top: 13px;
-            label.box{
-              .file{
-                display: none;
+        width:calc(100% - 20px);
+        position: relative;
+        .new_message{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .main__bottom__text-area{
+            width:calc(100% - 120px);
+              .text{
+                width:100%;
                 height: 50px;
+                margin-right: 30px;
               }
-            }
+              .main__bottom__file {
+                position: absolute;
+                right: 150px;
+                top: 13px;
+                label.box{
+                  .file{
+                    display: none;
+                    height: 50px;
+                  }
+                }
+              }
+          }
+          .text__btn{
+            color: #FFFFFF;
+            background-color: #38AEF0;
+            height: 50px;
+            width: 100px;
+            padding: 10px;
+            border: thin solid #38AEF0;
           }
         }
       }
-      .text-button{
-        color: #FFFFFF;
-        background-color: #38AEF0;
-        height: 50px;
-        width: 100px;
-        padding: 10px;
-        border: thin solid #38AEF0;
-        float: right;
-      }
-  }
+    }
+
 }
+
+
+
+
+
+
+
+
