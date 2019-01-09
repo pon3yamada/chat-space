@@ -1,0 +1,21 @@
+.message{
+  padding: 46px 40px 0px 40px;
+  .upper-message{
+    display: flex;
+    flex-direction: row;
+    &__user-name{
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #434A54
+    }
+    &__date{
+      margin-left: 10px;
+      color: #999999;
+      font-size: 12px;
+    }
+  }
+  .lower-message{
+    font-size: 14px;
+    color: #434A54
+  }
+}

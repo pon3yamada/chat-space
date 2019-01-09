@@ -6,18 +6,22 @@
       .main__top__group
         .main__top__group__name
           group name
-        .main__top__group__edit
-          =link_to 'edit', edit_group_path(@group.id), class: 'edit-btn'
-      .main__top__members
-        Members
+          .main__top__group__name__members
+            Members
+      .main__top__edit
+        =link_to 'edit', edit_group_path(@group.id), class: 'edit-btn'
     .main__center
-      .main__cdnter__contents
+      .messages
+        - @messages.each do |message|
+          = render "groups/message", {message: message}
     .main__bottom
-      %form.main__bottom__message
-        .main__bottom__message-file
-          %input.text{name: "text", type: "text", placeholder: "type a message"}
-          .main__bottom__file
-            %label.box
-              %input.file{name: "image", type: "file" }
-              = fa_icon "picture-o"
-      %input.text-button{type: "submit", value: "send"}
+      .main__bottom__message
+        = form_for [@group, @message] do |f|
+          .main__bottom__text-area
+            = f.text_area :content,class: 'text', placeholder: 'type a message'
+            .main__bottom__file
+              %label.box
+                %input.file{name: "image", type: "file" }
+                  = fa_icon "picture-o"
+          .text__button
+            = f.submit 'Send', class: 'text__btn'
