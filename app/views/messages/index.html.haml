@@ -5,9 +5,11 @@
     .main__top
       .main__top__group
         .main__top__group__name
-          group name
+          = @group.name
           .main__top__group__name__members
-            Members
+            Members :
+            - @group.users.each do |user|
+              =user.name
       .main__top__edit
         =link_to 'edit', edit_group_path(@group.id), class: 'edit-btn'
     .main__center
@@ -18,10 +20,10 @@
       .main__bottom__message
         = form_for [@group, @message] do |f|
           .main__bottom__text-area
-            = f.text_area :content,class: 'text', placeholder: 'type a message'
+            = f.text_area :content, class: 'text', placeholder: 'type a message'
             .main__bottom__file
               %label.box
-                %input.file{name: "image", type: "file" }
-                  = fa_icon "picture-o"
+                = f.file_field :image, class: "file"
+                = fa_icon "picture-o"
           .text__button
             = f.submit 'Send', class: 'text__btn'
