@@ -17,7 +17,6 @@ $(function(){
                     ${image}
                   </div>
                 </div>`
-    console.log(message.id)
     return html;
   };
 
