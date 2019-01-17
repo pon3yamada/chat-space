@@ -23,7 +23,7 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = $(this).attr('action')
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -40,6 +40,40 @@ $(function(){
       $('.main__center').animate({scrollTop: $('.main__center')[0].scrollHeight});
       $('.text__btn').prop('disabled', false);
     })
-  })
-})
+    .fail(function(data) {
+      alert('errer');
+    })
 
+    .always(function(data) {
+     $('.text__btn').prop('disabled', false);
+    })
+  });
+
+  var interval = setInterval (function(){
+    if(window.location.href.match(/\/groups\/\d+\/messages/)){
+      var m_id = $('.message:last').data('message-id') || 0
+
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: {id: m_id},
+      dataType: 'json',
+    })
+
+    .done(function(data) {
+      var id = $('.message').data('message-id')
+      var insertHTML = '';
+      data.forEach(function(message) {
+        insertHTML = buildHTML(message);
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop: $('.messages')[0].
+          scrollHeight});
+        });
+      })
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      });
+    } else {
+      clearInterval(interval);
+    }}, 5000 );
+});
