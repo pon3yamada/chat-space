@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 set :application, "my_app_name"
 set :repo_url, "git@example.com:me/my_repo.git"
 
-lock '<3.11.0>'
+lock '3.11.0'
 
 set :application, 'chat-space'
 set :repo_url,  'git@github.com:pon3yamada/chat-space.git'
