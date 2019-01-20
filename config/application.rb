@@ -14,8 +14,13 @@ module ChatSpace
       g.javascripts false
       g.helper false
       g.test_framework false
-    end
+  end
     config.i18n.default_locale = :ja
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+
+     config.time_zone = 'Tokyo'
+  #  ActiveRecord 使用時に DB に書かれる時刻も合わせたい場合は以下も追加
+    config.active_record.default_timezone = :local
+    Time::DATE_FORMATS[:default] = '%Y/%m/%d %H:%M'
   end
 end

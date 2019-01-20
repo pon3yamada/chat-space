@@ -66,8 +66,7 @@ $(function(){
       data.forEach(function(message) {
         insertHTML = buildHTML(message);
         $('.messages').append(insertHTML);
-        $('.messages').animate({scrollTop: $('.messages')[0].
-          scrollHeight});
+        $('.main__center').animate({scrollTop: $('.main__center')[0].scrollHeight});
         });
       })
       .fail(function(data) {
